@@ -41,4 +41,9 @@ describe('Calculateur de Figure Yams', () => {
     const dice = [6, 6, 6, 6, 1]; 
     expect(calculateYamsScore(dice)).toBe(35);
   });
+
+  it('devrait identifier un Carré même avec un ordre différent', () => {
+    const dice = [3, 3, 3, 3, 2];
+    expect(calculateYamsScore(dice)).toBe(35);
+  });
 });
