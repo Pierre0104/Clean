@@ -1,4 +1,10 @@
 {
   "name": "Clean",
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0",
+  "dependencies": {
+    "vitest": "^4.0.5"
+  },
+  "scripts": {
+    "test": "vitest"
+  }
 }
