@@ -46,4 +46,24 @@ describe('Calculateur de Figure Yams', () => {
     const dice = [3, 3, 3, 3, 2];
     expect(calculateYamsScore(dice)).toBe(35);
   });
+
+  it('devrait choisir YAMS plutôt que Carré quand les deux sont possibles', () => {
+    const dice = [4, 4, 4, 4, 4];
+    expect(calculateYamsScore(dice)).toBe(50);
+  });
+
+  it('devrait choisir Carré plutôt que Brelan quand les deux sont possibles', () => {
+    const dice = [2, 2, 2, 2, 5];
+    expect(calculateYamsScore(dice)).toBe(35);
+  });
+
+  it('devrait choisir Full plutôt que Brelan quand les deux sont possibles', () => {
+    const dice = [6, 6, 6, 2, 2];
+    expect(calculateYamsScore(dice)).toBe(30);
+  });
+
+  it('devrait choisir Grande Suite plutôt que Chance', () => {
+    const dice = [2, 3, 4, 5, 6];
+    expect(calculateYamsScore(dice)).toBe(40);
+  });
 });

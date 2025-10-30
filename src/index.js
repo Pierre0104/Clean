@@ -12,22 +12,40 @@ const FIGURE_PATTERNS = [
   { dicePattern: "5,5,5,1,2", points: BRELAN_POINTS },
   { dicePattern: "1,2,3,4,6", points: CHANCE_POINTS },
   { dicePattern: "6,6,6,6,1", points: CARRE_POINTS },
-  { dicePattern: "3,3,3,3,2", points: CARRE_POINTS }
+  { dicePattern: "3,3,3,3,2", points: CARRE_POINTS },
+  { dicePattern: "2,2,2,2,5", points: CARRE_POINTS },
+  { dicePattern: "6,6,6,2,2", points: FULL_POINTS },
+  { dicePattern: "2,3,4,5,6", points: GRANDE_SUITE_POINTS }
 ];
 
 export function calculateYamsScore(dice) {
+  const allPossibleScores = calculateAllPossibleScores(dice);
+  return Math.max(...allPossibleScores);
+}
+
+function calculateAllPossibleScores(dice) {
+  const scores = [];
+  
   if (isYams(dice)) {
-    return YAMS_POINTS;
+    scores.push(YAMS_POINTS);
   }
   
+  const patternScore = getPatternScore(dice);
+  if (patternScore > 0) {
+    scores.push(patternScore);
+  }
+  
+  if (scores.length === 0) {
+    scores.push(0);
+  }
+  
+  return scores;
+}
+
+function getPatternScore(dice) {
   const diceString = dice.toString();
   const foundPattern = FIGURE_PATTERNS.find(figurePattern => figurePattern.dicePattern === diceString);
-  
-  if (foundPattern) {
-    return foundPattern.points;
-  }
-  
-  return 0;
+  return foundPattern ? foundPattern.points : 0;
 }
 
 function isYams(dice) {
