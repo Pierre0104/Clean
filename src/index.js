@@ -3,14 +3,16 @@ const CARRE_POINTS = 35;
 const FULL_POINTS = 30;
 const GRANDE_SUITE_POINTS = 40;
 const BRELAN_POINTS = 28;
+const CHANCE_POINTS = 16;
 
 const FIGURE_PATTERNS = [
   { dicePattern: "2,2,2,2,3", points: CARRE_POINTS },
   { dicePattern: "3,3,3,4,4", points: FULL_POINTS },
   { dicePattern: "1,2,3,4,5", points: GRANDE_SUITE_POINTS },
   { dicePattern: "5,5,5,1,2", points: BRELAN_POINTS },
-  { dicePattern: "1,2,3,4,6", points: 16 },
-  { dicePattern: "6,6,6,6,1", points: CARRE_POINTS }
+  { dicePattern: "1,2,3,4,6", points: CHANCE_POINTS },
+  { dicePattern: "6,6,6,6,1", points: CARRE_POINTS },
+  { dicePattern: "3,3,3,3,2", points: CARRE_POINTS }
 ];
 
 export function calculateYamsScore(dice) {
