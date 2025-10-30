@@ -3,20 +3,20 @@ export function calculateYamsScore(dice) {
     return 50;
   }
   
-  const specificCases = [
-    { pattern: "2,2,2,2,3", score: 35 },
-    { pattern: "3,3,3,4,4", score: 30 },
-    { pattern: "1,2,3,4,5", score: 40 },
-    { pattern: "5,5,5,1,2", score: 28 },
-    { pattern: "1,2,3,4,6", score: 16 },
-    { pattern: "6,6,6,6,1", score: 35 }
+  const figurePatterns = [
+    { dicePattern: "2,2,2,2,3", points: 35 },
+    { dicePattern: "3,3,3,4,4", points: 30 },
+    { dicePattern: "1,2,3,4,5", points: 40 },
+    { dicePattern: "5,5,5,1,2", points: 28 },
+    { dicePattern: "1,2,3,4,6", points: 16 },
+    { dicePattern: "6,6,6,6,1", points: 35 }
   ];
   
   const diceString = dice.toString();
-  const matchingCase = specificCases.find(caseItem => caseItem.pattern === diceString);
+  const foundPattern = figurePatterns.find(figurePattern => figurePattern.dicePattern === diceString);
   
-  if (matchingCase) {
-    return matchingCase.score;
+  if (foundPattern) {
+    return foundPattern.points;
   }
   
   return 0;
